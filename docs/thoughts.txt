@@ -1,0 +1,41 @@
+What causes gold price (@yahoo) & 10Y real yield (@FRED DFII10) to have a correlation above 0.60?
+    1. Get time period when corr > 0.60
+    2. Learn what happened before that time period
+    3. Graph patterns
+
+Confounders: ACM 10Y Term Premium
+
+Note: analysis runs at DAILY frequency. (The weekly constraint came from the Ravenpack panel,
+which has been dropped — see section 4.)
+
+-------------------------------------------------------------------------------------------------------------
+
+Nominal 10Y = expected Fed path + term premium (ACM estimates the split)
+Real 10Y (DFII10) = nominal - breakeven
+=> REAL YIELD = EXPECTED RATES + TERM PREMIUM - BREAKEVEN
+Three doors for a real-yield rise:
+  A  expected rates up   -> raises gold's opportunity cost      -> BEARISH gold
+  B  term premium up     -> cash pays no more; causes are       -> BULLISH gold
+                            fiscal risk / inflation uncertainty
+  C  breakevens down     -> deflation signature                 -> ambiguous
+Gold's opportunity cost runs through door A ONLY. "Real yield rose" is ambiguous until decomposed.
+Units: yield/TP/breakeven in PERCENTAGE POINTS; gold_pct/copper_pct/silver_pct are decimals.
+
+-------------------------------------------------------------------------------------------------------------
+
+Dashboard (PowerBI) Visuals
+
+1. Corr line plot
+2. Change Real Yield vs Log Return Gold Prices Scatter plot
+3. Mechanisms for each episode regime clustered column chart
+4. Expected rate change and ACM percentile scatter plot
+5. Gold ETF hypothesis clustered column chart
+
+REFERENCES
+Adrian-Crump-Moench 2013 (ACM term premium);
+Bernanke 2015 Brookings series (decomposition, readable);
+Erb-Harvey 2013 "The Golden Dilemma" (gold/real-yield instability across eras);
+Barsky-Summers 1988 (Gibson's Paradox); Greenwood-Vayanos 2014 (Treasury supply -> TP);
+D'Amico-Kim-Wei "Tips from TIPS";
+Campbell-Shiller-Viceira 2009; Fleckenstein-Longstaff-Lustig (TIPS-Treasury puzzle);
+Lopez de Prado 2018, Advances in Financial ML (label/window alignment).
